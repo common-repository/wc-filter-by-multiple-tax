@@ -1,0 +1,202 @@
+/**
+ * Widget Style
+ */
+// import library
+@import "mixins.less";
+@import "variable.less";
+
+// Widget Taxonomy Multi Level
+.widget-taxonomy-menu {
+	.wc-filter-search {
+		display: block;
+		margin-bottom: 20px;
+		> input {
+			width: 100%;
+			outline: none;
+			border: 1px solid #e5e5e5;
+			background-color: transparent;
+		}		
+	}
+	.has_current_cat {
+		&:hover {
+			cursor: pointer;
+		}
+		&:after {
+		    content: '\f105';
+			font-family: FontAwesome;
+			margin-left: 15px;
+		}
+		&.active {
+			&:after {
+				content: '\f107';
+				font-family: FontAwesome;
+			}
+		}
+	}
+	
+}
+.product-taxonomy {
+	padding-left: 0px;
+	ul {
+		padding: 0;
+		list-style: none;
+	}
+	&.dropdown{
+		&.cat_hide {
+			display: none;
+			margin-bottom: 0;
+		}
+		.open {
+			> .children {
+				display: block !important;
+			}	
+		}
+		.children {
+			display: none;
+		}
+		&:not(.taxonomy-filter) {
+			.open {
+				> a {
+					&:before {
+						content: '\f107';
+						font-family: FontAwesome;
+						margin-right: 10px;
+					}				
+				}
+			}
+		}
+	}
+	&.list {
+		li .children {
+			display: block;
+		}
+	}
+
+	&.list:not(.taxonomy-filter):not(.flatsome),
+	&.dropdown {
+		li:not(.no-filter) {
+			padding-left: 0;
+			list-style: none;
+			&.current-cat {
+				> a {
+					color: #ff9800;
+				}
+			}
+			a {
+				position: relative;
+				&:before {
+					content: '\f105';
+					font-family: FontAwesome;
+					margin-right: 10px;
+				}			
+			}
+			.children {
+				padding: 0 !important;
+			}
+		}
+	}
+	&.taxonomy-filter {
+		> li {
+			padding-left: 0;
+			&.no-filter {
+				font-weight: 500;
+				padding-left: 0;
+				> a {
+					padding-left: 0;
+					&:hover {
+						cursor: text;
+						color: inherit;
+						text-decoration: none;
+					}
+				}
+				&:hover {
+					cursor: text;
+				}
+			}
+		}
+		li {
+			a {
+				display: inline-block;
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				img {
+					margin-right: 10px;
+				}
+			}
+			&:not(.no-filter) {
+				a {
+					&:before {
+						content: '\f096';
+						display: inline-block;
+						color: inherit;
+						margin-right: 10px;
+						font-family: FontAwesome;
+						.transition(all .4s ease-out);
+					}
+				}
+
+				&:hover,
+				&.active {
+					> a {
+						&:before {
+							content: '\f046';
+						} 
+					}
+
+				}
+				&.active {
+					> a {
+						i {
+							margin: 0 10px;
+						}
+						&:hover i {
+							color: red;
+						}
+					}
+				}
+			}
+			.children {
+				padding: 0 !important;
+				position: relative;
+				z-index: 2;
+			}
+		}
+		&.flatsome {
+			.children {
+				> li a {
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+}
+// Box selection
+.widget-box-selection {
+	.remove-filter {
+		clear: both;
+		display: block;
+		text-align: right;
+	}
+	> ul {
+		padding: 0;
+		> li {
+			> a {
+				i {
+					margin-left: 10px;
+				}
+			}
+			&:hover {
+				a i {
+					color: red;
+				}
+			}
+		}
+		li {
+			a {
+				img {
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
